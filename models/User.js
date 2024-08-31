@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const LocationSchema = require('./Location')
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -40,8 +39,15 @@ const UserSchema = new mongoose.Schema({
     },
     picture: [String],
     location: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Location',
+      type: {
+        type: String,
+        default: 'Point',
+      },
+      coordinates: {
+        type: [Number],
+        default: [0.0, 0.0],
+        index: '2dsphere',
+      },
     },
   },
 }, { timestamps: true });

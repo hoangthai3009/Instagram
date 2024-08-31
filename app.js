@@ -7,6 +7,7 @@ var connectDB = require("./config/db");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
+var followRouter = require('./routes/follow');
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use('/api/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/follow', followRouter);
 
 // Xử lý lỗi 404 và chuyển tiếp đến trình xử lý lỗi
 app.use(function (req, res, next) {
