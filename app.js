@@ -5,9 +5,10 @@ var logger = require('morgan');
 var connectDB = require("./config/db");
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
 var authRouter = require('./routes/auth');
 var followRouter = require('./routes/follow');
+var postRouter = require('./routes/post');
 
 var app = express();
 
@@ -22,9 +23,10 @@ app.use(cookieParser());
 
 // Định tuyến cho API
 app.use('/api/', indexRouter);
-app.use('/api/users', usersRouter);
+app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/follow', followRouter);
+app.use('/api/post', postRouter);
 
 // Xử lý lỗi 404 và chuyển tiếp đến trình xử lý lỗi
 app.use(function (req, res, next) {
