@@ -30,12 +30,11 @@ const UserSchema = new mongoose.Schema({
       type: String,
       enum: ['male', 'female', 'other'],
       default: 'other',
-      required: true,
     },
     interests: [String],
     avatar: {
       type: String,
-      default: 'https://via.placeholder.com/300',
+      default: 'https://res.cloudinary.com/dbqn3l2s3/image/upload/v1729263399/instagram/user/Avatar.jpg',
     },
     picture: [String],
     location: {
